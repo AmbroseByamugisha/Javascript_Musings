@@ -1,6 +1,6 @@
 # Javascript Musings
 
-Foobar is a Python library for dealing with word pluralization.
+Javascript Musings is a fun place to try out all the cool stuff I know in Javascript.
 
 ## Installation
 

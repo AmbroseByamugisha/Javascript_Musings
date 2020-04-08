@@ -7,9 +7,9 @@ input[type=text], textarea {
 .wrapper {
     font-family: monospace;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-columns: repeat(4, 1fr); */
     grid-gap: 10px;
-    grid-auto-rows: 200px;
+    /* grid-auto-rows: 200px; */
     grid-template-areas: 
       ". a a ."
       ". a a .";
@@ -41,9 +41,16 @@ p {
   color: blueviolet;
   font-size: small;
 }
-h5 {
+h2 {
   color: darkgoldenrod;
+  cursor: pointer;
 }
+
+h2:hover {
+  text-decoration: underline;
+  color: deeppink;
+}
+
 span {
   background-color:chartreuse;
   margin-right: 10px;

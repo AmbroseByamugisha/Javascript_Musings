@@ -15,7 +15,8 @@ function addToQuestions() {
     questions_array.push(question_obj);
     console.log(questions_array);
     // the title and body of the qns
-    let quest_title = document.createElement("h5");
+    let quest_title = document.createElement("h2");
+    quest_title.setAttribute('id', 'question_title');
     let quest_body = document.createElement("p");
     // the like button-span
     let quest_like_button = document.createElement("span");
@@ -43,9 +44,11 @@ function addToQuestions() {
     document.getElementById("questions").appendChild(quest_like_button);
     document.getElementById("questions").appendChild(quest_comment_button);
     document.getElementById("questions").appendChild(comments_button)
-    // try
     document.getElementById("questions").appendChild(comment_para)
-    //
+    quest_title.addEventListener('click', function(){
+        location.assign("http://localhost:5500/components/question_detail.html")
+        console.log("clicked title")
+    })
     quest_like_button.addEventListener('click',function(){
         ++question_obj.num_of_likes
         quest_like_button.textContent = "Likes " + question_obj.num_of_likes;
@@ -73,13 +76,7 @@ function addToQuestions() {
             document.getElementById("questions").appendChild(comment_input_button);
             comment_form_loaded = !comment_form_loaded;    
         }
-        // document.getElementById("questions").appendChild(comment_input);
-        // document.getElementById("questions").appendChild(comment_input_button);
-        //comment_form_loaded = !comment_form_loaded;
-        //let one_comment = document.getElementById("one_comment")
         if(document.getElementById("comments_div") !== null){
-            //one_comment.remove()
-            // As long as <ul> has a child node, remove it
             while (comment_para.hasChildNodes()) {  
                 comment_para.removeChild(comment_para.firstChild);
             }
@@ -96,25 +93,17 @@ function addToQuestions() {
             comment_form_loaded = !comment_form_loaded;
             document.getElementById("comment_textarea").remove();
             document.getElementById("post_comment_button").remove();
-            
         })
         
     })
     comments_button.addEventListener('click', function(){
         question_obj.comments.forEach(element => {
             console.log(element)
-            // if (comment_para.hasChildNodes() == true) {
-            //     return false
-            // }
             if (comment_para.childElementCount !== question_obj.comments.length) {
-                //return false;
                 comment_para.innerHTML += `<p id = "one_comment">${element.comment_body}</p>`;
             }
             return false
-            //comment_para.innerHTML += `<p id = "one_comment">${element.comment_body}</p>`;
-            //document.getElementById("questions").appendChild(comment_para)
         })
     })
 
 }
-
